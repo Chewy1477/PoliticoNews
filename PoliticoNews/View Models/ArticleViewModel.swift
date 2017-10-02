@@ -10,7 +10,6 @@ import UIKit
 
 protocol ArticleCellProtocol: AnyObject {
     var articleTitle: String { get }
-    var articleLink: String { get }
     var articleDescription: String { get }
     var articleDate: String { get }
     var articleAuthor: String { get }
@@ -36,9 +35,6 @@ class ArticleViewCellViewModel: ArticleCellProtocol {
         return myArticle.author
     }
     
-    var articleLink: String {
-        return myArticle.link
-    }
     
     var articleContent: String {
         return myArticle.content

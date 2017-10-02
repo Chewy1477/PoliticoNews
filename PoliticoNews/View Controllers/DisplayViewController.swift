@@ -11,6 +11,15 @@ import UIKit
 final class DisplayViewController: PTViewController {
     
     var hasHeart: Bool = false
+    var favorite: Favorite?
+
+    var favoritesViewModel: FavoriteViewCellViewModel? {
+        didSet {
+            guard let fvm = favoritesViewModel else {
+                return
+            }
+        }
+    }
     
     var viewModel: ArticleViewCellViewModel? {
         didSet {
@@ -120,20 +129,26 @@ final class DisplayViewController: PTViewController {
     }
     
     func heartStatus() {
-        let favoritesCell = FavoritesTableCell()
-
         if (hasHeart == false) {
             hasHeart = true
-            
-            guard let vm = viewModel else {
-                return
-            }
-            
-            favoritesCell.cellViewModel? = vm
+            addToFavorites()
         }
         else {
             hasHeart = false
         }
         self.navigationItem.rightBarButtonItem = customBarButton
+    }
+    
+    func addToFavorites() {
+        let create = self.favorite ?? CoreDataHelper.newFavorite()
+        
+        guard let vm = viewModel else {
+            return
+        }
+        
+        create.title = vm.articleTitle
+        create.content = vm.articleContent
+        create.author = vm.articleAuthor
+        CoreDataHelper.saveFavorite()
     }
 }

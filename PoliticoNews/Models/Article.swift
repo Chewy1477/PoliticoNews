@@ -25,3 +25,4 @@ struct Article {
         self.content = content
     }
 }
+

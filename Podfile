@@ -9,10 +9,6 @@ target ‘PoliticoNews’ do
 	
   pod 'SWXMLHash', '~> 4.0.0'
   pod 'Alamofire', '~> 4.5'
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
-  pod 'FirebaseUI/Auth'
-  pod 'Firebase/Database'
-  pod 'Firebase/Storage'
+
 
 end

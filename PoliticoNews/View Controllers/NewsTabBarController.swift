@@ -25,14 +25,9 @@ final class NewsTabBarController: UINavigationController {
         tabBar.delegate = self
 
         let viewControllers: [UIViewController] = [homeVC, favoritesVC]
-//        let faveButton = FaveButton(
-//            frame: CGRect(x:200, y: 200, width: 44, height: 44),
-//            faveIconNormal: UIImage(named: "heart")
-//        )
-//
-//        self.navigationItem.rightBarButtonItem?.customView = faveButton
+
         for vc in viewControllers {
-            vc.view.backgroundColor = .white
+            vc.view.backgroundColor = .darkGray
             
             let nav = PTNavigationController()
             nav.viewControllers = [vc]

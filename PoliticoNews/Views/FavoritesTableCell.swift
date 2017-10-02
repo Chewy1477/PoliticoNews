@@ -10,21 +10,13 @@ import UIKit
 
 final class FavoritesTableCell: UITableViewCell {
     
-    var cellViewModel: ArticleViewCellViewModel? {
-        didSet {
-            guard let avm = cellViewModel else {
-                return
-            }
-        }
-    }
-    
-    fileprivate var myImage: UIImageView = {
+    var myImage: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    fileprivate var title: UILabel = {
+    var title: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = .black
