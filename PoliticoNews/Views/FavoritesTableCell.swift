@@ -21,25 +21,9 @@ final class FavoritesTableCell: UITableViewCell {
         label.textAlignment = .left
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
         return label
-    }()
-    
-    fileprivate var release: UILabel = {
-        let date = UILabel()
-        date.textAlignment = .left
-        date.textColor = .black
-        date.font = UIFont.systemFont(ofSize: 12)
-        date.translatesAutoresizingMaskIntoConstraints = false
-        return date
-    }()
-    
-    fileprivate var price: UILabel = {
-        let cost = UILabel()
-        cost.textAlignment = .left
-        cost.textColor = .black
-        cost.font = UIFont.systemFont(ofSize: 12)
-        cost.translatesAutoresizingMaskIntoConstraints = false
-        return cost
     }()
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,24 +44,18 @@ final class FavoritesTableCell: UITableViewCell {
     private func initialize() {
         contentView.addSubview(myImage)
         contentView.addSubview(title)
-        contentView.addSubview(release)
-        contentView.addSubview(price)
+
         
-        contentView.addConstraint(NSLayoutConstraint(item: myImage, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: -10))
-        contentView.addConstraint(NSLayoutConstraint(item: myImage, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 10))
-        contentView.addConstraint(NSLayoutConstraint(item: myImage, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1, constant: 10))
+        contentView.addConstraint(NSLayoutConstraint(item: myImage, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0))
+        contentView.addConstraint(NSLayoutConstraint(item: myImage, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0))
+        contentView.addConstraint(NSLayoutConstraint(item: myImage, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1, constant: 0))
+        contentView.addConstraint(NSLayoutConstraint(item: myImage, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.height/8))
+        contentView.addConstraint(NSLayoutConstraint(item: myImage, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/3))
         
+        contentView.addConstraint(NSLayoutConstraint(item: title, attribute: .left, relatedBy: .equal, toItem: myImage, attribute: .right, multiplier: 1, constant: 10))
+        contentView.addConstraint(NSLayoutConstraint(item: title, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 10))
+        contentView.addConstraint(NSLayoutConstraint(item: title, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1, constant: -10))
         
-        contentView.addConstraint(NSLayoutConstraint(item: title, attribute: .left, relatedBy: .equal, toItem: myImage, attribute: .right, multiplier: 1, constant: 15))
-        contentView.addConstraint(NSLayoutConstraint(item: title, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1, constant: -30))
-        contentView.addConstraint(NSLayoutConstraint(item: title, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 20))
-        
-        contentView.addConstraint(NSLayoutConstraint(item: release, attribute: .top, relatedBy: .equal, toItem: title, attribute: .bottom, multiplier: 1, constant: 5))
-        contentView.addConstraint(NSLayoutConstraint(item: release, attribute: .left, relatedBy: .equal, toItem: myImage, attribute: .right, multiplier: 1, constant: 15))
-        contentView.addConstraint(NSLayoutConstraint(item: release, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1, constant: 70))
-        
-        contentView.addConstraint(NSLayoutConstraint(item: price, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0))
-        contentView.addConstraint(NSLayoutConstraint(item: price, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1, constant: -30))
         
     }
 }

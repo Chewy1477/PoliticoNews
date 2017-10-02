@@ -24,10 +24,7 @@ final class FavoritesViewController: PTViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         favorites = CoreDataHelper.retrieveFavorites()
-        
-        self.tableViewModel = self.favorites.map({(parameter: Favorite) -> FavoriteViewCellViewModel in
-            return FavoriteViewCellViewModel(withFavorite: parameter)
-        })
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -49,8 +46,16 @@ extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let displayVC = DisplayViewController()
         
+        self.tableViewModel = self.favorites.map({(parameter: Favorite) -> FavoriteViewCellViewModel in
+            return FavoriteViewCellViewModel(withFavorite: parameter)
+        })
+        
         displayVC.favoritesViewModel = FavoriteViewCellViewModel(withFavorite: favorites[indexPath.row])
         navigationController?.pushViewController(displayVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 
@@ -59,13 +64,13 @@ extension FavoritesViewController: UITableViewDataSource {
         return favorites.count
     }
     
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //1
             CoreDataHelper.delete(favorite: favorites[indexPath.row])
             //2
             favorites = CoreDataHelper.retrieveFavorites()
+            tableView.reloadData()
         }
     }
     
@@ -75,7 +80,7 @@ extension FavoritesViewController: UITableViewDataSource {
         let row = indexPath.row
         let favorite = favorites[row]
         cell.title.text = favorite.title
-        
+        cell.myImage.image = #imageLiteral(resourceName: "temp")
         return cell
     }
 }

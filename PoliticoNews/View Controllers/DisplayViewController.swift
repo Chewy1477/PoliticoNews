@@ -12,12 +12,15 @@ final class DisplayViewController: PTViewController {
     
     var hasHeart: Bool = false
     var favorite: Favorite?
-
+    var checkSaved: [Favorite] = []
+    
     var favoritesViewModel: FavoriteViewCellViewModel? {
         didSet {
             guard let fvm = favoritesViewModel else {
                 return
             }
+            displayTitle.text = fvm.favoriteTitle
+            displayImageView.image = #imageLiteral(resourceName: "temp")
         }
     }
     
@@ -50,8 +53,7 @@ final class DisplayViewController: PTViewController {
     
     var heartImageView: UIImageView {
         let heartImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        
-        if (hasHeart) {
+        if (hasHeart == false) {
             heartImage.image = #imageLiteral(resourceName: "unfavorited")
         }
             
@@ -102,9 +104,26 @@ final class DisplayViewController: PTViewController {
         initialize()
     }
     
-    private func initialize() {
-        heartStatus()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        checkSaved = CoreDataHelper.retrieveFavorites()
+        print(checkSaved)
+        if (checkSaved.count != 0) {
+            for i in checkSaved {
+                if (i.title == favoritesViewModel?.favoriteTitle || i.title == viewModel?.articleTitle) {
+                    hasHeart = true
+                    DispatchQueue.main.async {
+                        self.navigationItem.rightBarButtonItem = self.customBarButton
+                    }
+                }
+            }
+        }
+    }
+    
+    private func initialize() {
+        self.navigationItem.rightBarButtonItem = customBarButton
+
         view.addSubview(displayImageView)
         view.addSubview(displayBackgroundView)
         
@@ -135,6 +154,9 @@ final class DisplayViewController: PTViewController {
         }
         else {
             hasHeart = false
+            
+            let toDelete = checkSaved.filter { $0.title == viewModel?.articleTitle }
+            CoreDataHelper.delete(favorite: toDelete[0])
         }
         self.navigationItem.rightBarButtonItem = customBarButton
     }
