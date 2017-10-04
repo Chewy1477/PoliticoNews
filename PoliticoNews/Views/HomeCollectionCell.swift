@@ -32,10 +32,10 @@ final class HomeCollectionCell: UICollectionViewCell {
         title.layer.shadowOpacity = 4
         title.layer.shadowRadius = 4
         title.layer.shadowColor = UIColor.black.cgColor
-        title.layer.shadowOffset = CGSize(width: 0, height: -0.5)
+        title.layer.shadowOffset = CGSize(width: 0, height: -1.0)
         title.textAlignment = .left
         title.textColor = .white
-        title.font = UIFont.systemFont(ofSize: 18)
+        title.font = UIFont.systemFont(ofSize: 20)
         title.translatesAutoresizingMaskIntoConstraints = false
         title.lineBreakMode = .byWordWrapping
         title.numberOfLines = 3

@@ -13,6 +13,8 @@ final class HomeViewController: PTViewController {
     
     let apiToContact = "http://www.politico.com/rss/politicopicks.xml"
     var articles: [Article] = []
+    var favorites: [Favorite] = []
+
     var collectionViewModel: ArticleViewModel?
     var insetHeight: CGFloat?
 
@@ -63,10 +65,11 @@ final class HomeViewController: PTViewController {
             }
             
             try? self.articles = ArticleSerialization.articles(data: data)
-
+            
             self.collectionViewModel = self.articles.map({(parameter: Article) -> ArticleViewCellViewModel in
                 return ArticleViewCellViewModel(withArticle: parameter)
                 })
+            
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }

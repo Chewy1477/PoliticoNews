@@ -10,18 +10,17 @@
 		8329ADE61F7CBFFC004AF2E6 /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329ADE51F7CBFFC004AF2E6 /* HomeCollectionCell.swift */; };
 		8329ADE81F7D8C53004AF2E6 /* UIView+PoliticoNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329ADE71F7D8C53004AF2E6 /* UIView+PoliticoNews.swift */; };
 		832E54C01F7E2D1400B780E5 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E54BF1F7E2D1400B780E5 /* DisplayViewController.swift */; };
+		834E1ECB1F8347E200E47854 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834E1ECA1F8347E200E47854 /* Article.swift */; };
 		83566B331F81E7A0005B5367 /* FavoritesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83566B321F81E7A0005B5367 /* FavoritesTableCell.swift */; };
 		83566B351F81F691005B5367 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83566B341F81F691005B5367 /* CoreData.framework */; };
 		83566B381F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83566B361F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld */; };
 		83566B3A1F81F766005B5367 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83566B391F81F766005B5367 /* CoreDataHelper.swift */; };
-		83566B3D1F81FD2A005B5367 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83566B3C1F81FD2A005B5367 /* FavoriteViewModel.swift */; };
 		83769D041F79A0A3001A91D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83769D031F79A0A3001A91D7 /* AppDelegate.swift */; };
 		83769D061F79A0A3001A91D7 /* NewsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83769D051F79A0A3001A91D7 /* NewsTabBarController.swift */; };
 		83769D091F79A0A3001A91D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83769D071F79A0A3001A91D7 /* Main.storyboard */; };
 		83769D0B1F79A0A3001A91D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83769D0A1F79A0A3001A91D7 /* Assets.xcassets */; };
 		83769D0E1F79A0A3001A91D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83769D0C1F79A0A3001A91D7 /* LaunchScreen.storyboard */; };
 		83BC0B831F7A3A0D002D968E /* ArticleSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BC0B821F7A3A0D002D968E /* ArticleSerialization.swift */; };
-		83BC0B851F7C416A002D968E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BC0B841F7C416A002D968E /* Article.swift */; };
 		83BC0B881F7C4DE7002D968E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BC0B871F7C4DE7002D968E /* HomeViewController.swift */; };
 		83BC0B8A1F7C4DF8002D968E /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BC0B891F7C4DF8002D968E /* FavoritesViewController.swift */; };
 		83BC0B8D1F7C5245002D968E /* PTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BC0B8C1F7C5245002D968E /* PTViewController.swift */; };
@@ -37,11 +36,11 @@
 		8329ADE51F7CBFFC004AF2E6 /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
 		8329ADE71F7D8C53004AF2E6 /* UIView+PoliticoNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PoliticoNews.swift"; sourceTree = "<group>"; };
 		832E54BF1F7E2D1400B780E5 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
+		834E1ECA1F8347E200E47854 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		83566B321F81E7A0005B5367 /* FavoritesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableCell.swift; sourceTree = "<group>"; };
 		83566B341F81F691005B5367 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		83566B371F81F6C1005B5367 /* FavoriteArticles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteArticles.xcdatamodel; sourceTree = "<group>"; };
 		83566B391F81F766005B5367 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		83566B3C1F81FD2A005B5367 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		83769D001F79A0A3001A91D7 /* PoliticoNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliticoNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83769D031F79A0A3001A91D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83769D051F79A0A3001A91D7 /* NewsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabBarController.swift; sourceTree = "<group>"; };
@@ -50,7 +49,6 @@
 		83769D0D1F79A0A3001A91D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83769D0F1F79A0A3001A91D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83BC0B821F7A3A0D002D968E /* ArticleSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSerialization.swift; sourceTree = "<group>"; };
-		83BC0B841F7C416A002D968E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		83BC0B871F7C4DE7002D968E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		83BC0B891F7C4DF8002D968E /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		83BC0B8C1F7C5245002D968E /* PTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +133,7 @@
 		83BC0B801F7A39BB002D968E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				83BC0B841F7C416A002D968E /* Article.swift */,
+				834E1ECA1F8347E200E47854 /* Article.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				83BC0B961F7C6ED1002D968E /* ArticleViewModel.swift */,
-				83566B3C1F81FD2A005B5367 /* FavoriteViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -328,13 +325,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83566B3D1F81FD2A005B5367 /* FavoriteViewModel.swift in Sources */,
 				8329ADE81F7D8C53004AF2E6 /* UIView+PoliticoNews.swift in Sources */,
 				832E54C01F7E2D1400B780E5 /* DisplayViewController.swift in Sources */,
 				83BC0B8D1F7C5245002D968E /* PTViewController.swift in Sources */,
 				83BC0B881F7C4DE7002D968E /* HomeViewController.swift in Sources */,
 				83566B3A1F81F766005B5367 /* CoreDataHelper.swift in Sources */,
-				83BC0B851F7C416A002D968E /* Article.swift in Sources */,
 				83769D061F79A0A3001A91D7 /* NewsTabBarController.swift in Sources */,
 				83566B331F81E7A0005B5367 /* FavoritesTableCell.swift in Sources */,
 				8329ADE61F7CBFFC004AF2E6 /* HomeCollectionCell.swift in Sources */,
@@ -345,6 +340,7 @@
 				83566B381F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld in Sources */,
 				83BC0B831F7A3A0D002D968E /* ArticleSerialization.swift in Sources */,
 				83BC0B8F1F7C52B3002D968E /* PTNavigationController.swift in Sources */,
+				834E1ECB1F8347E200E47854 /* Article.swift in Sources */,
 				83BC0B941F7C5C7E002D968E /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,9 +4,10 @@
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descrip" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Favorite" positionX="-45" positionY="0" width="128" height="105"/>
+        <element name="Favorite" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

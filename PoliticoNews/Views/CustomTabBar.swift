@@ -126,7 +126,7 @@ class CustomTabBar: UIView {
         //mid bar view constraints
 
         addConstraint(NSLayoutConstraint(item: midBarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20))
-        addConstraint(NSLayoutConstraint(item: midBarView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 0.5))
+        addConstraint(NSLayoutConstraint(item: midBarView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1))
         midBarViewCenterX = NSLayoutConstraint(item: midBarView, attribute: .centerX, relatedBy: .equal, toItem: homeButton, attribute: .right, multiplier: 1.0, constant: 0)
         midBarViewCenterY = NSLayoutConstraint(item: midBarView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -25)
         

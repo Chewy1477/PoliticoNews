@@ -10,25 +10,21 @@ import UIKit
 
 protocol ArticleCellProtocol: AnyObject {
     var articleTitle: String { get }
-    var articleDescription: String { get }
     var articleDate: String { get }
     var articleAuthor: String { get }
     var articleContent: String { get }
+    var articleDescription: String { get }
 }
 
 class ArticleViewCellViewModel: ArticleCellProtocol {
-    let myArticle: Article
+    private let myArticle: Article
     
     var articleTitle: String {
         return myArticle.title
     }
     
-    var articleDescription: String {
-        return myArticle.description
-    }
-    
     var articleDate: String {
-        return myArticle.date
+       return myArticle.date
     }
     
     var articleAuthor: String {
@@ -37,7 +33,16 @@ class ArticleViewCellViewModel: ArticleCellProtocol {
     
     
     var articleContent: String {
-        return myArticle.content
+        let content = myArticle.content
+        
+        let firstTag = content.replacingOccurrences(of: "<p>", with: "")
+        let endTag = firstTag.replacingOccurrences(of: "</p>", with: "\n")
+        
+        return endTag
+    }
+    
+    var articleDescription: String {
+        return myArticle.description
     }
     
     init(withArticle article: Article) {

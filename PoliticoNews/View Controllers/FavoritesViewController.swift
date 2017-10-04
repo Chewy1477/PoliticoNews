@@ -17,14 +17,17 @@ final class FavoritesViewController: PTViewController {
         return view
     }()
     
-    var tableViewModel: FavoriteViewModel?
+    var tableViewModel: ArticleViewModel?
 
     var favorites: [Favorite] = []
+    var articles: Article?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         favorites = CoreDataHelper.retrieveFavorites()
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -45,17 +48,22 @@ final class FavoritesViewController: PTViewController {
 extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let displayVC = DisplayViewController()
+        let selected = favorites[indexPath.row]
         
-        self.tableViewModel = self.favorites.map({(parameter: Favorite) -> FavoriteViewCellViewModel in
-            return FavoriteViewCellViewModel(withFavorite: parameter)
-        })
+        let title = selected.title ?? ""
+        let description = selected.descrip ?? ""
+        let content = selected.content ?? ""
+        let author = selected.author ?? ""
+        let date = selected.date ?? ""
         
-        displayVC.favoritesViewModel = FavoriteViewCellViewModel(withFavorite: favorites[indexPath.row])
+        let toPass = Article(title: title, description: description, content: content, author: author, date: date)
+        
+        displayVC.viewModel = ArticleViewCellViewModel(withArticle: toPass)
         navigationController?.pushViewController(displayVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UIScreen.main.bounds.height/8
     }
 }
 
@@ -70,7 +78,9 @@ extension FavoritesViewController: UITableViewDataSource {
             CoreDataHelper.delete(favorite: favorites[indexPath.row])
             //2
             favorites = CoreDataHelper.retrieveFavorites()
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                tableView.reloadData()
+            }
         }
     }
     

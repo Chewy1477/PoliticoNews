@@ -26,8 +26,6 @@ public final class ArticleSerialization {
                 
                 let articleName = items[i]["title"].element?.text ?? ""
                 
-                let articleLink = items[i]["link"].element?.text ?? ""
-                
                 let articleDescription = items[i]["description"].element?.text ?? ""
                 
                 let articleDate = items[i]["pubDate"].element?.text ?? ""
@@ -37,7 +35,7 @@ public final class ArticleSerialization {
                 let articleContent = items[i]["content:encoded"].element?.text ?? ""
             
             
-            let article = Article(title: articleName, link: articleLink, description: articleDescription, date: articleDate, author: articleAuthor, content: articleContent)
+                let article = Article(title: articleName, description: articleDescription, content: articleContent, author: articleAuthor, date: articleDate)
             arrArticles.append(article)
             }
             return arrArticles
