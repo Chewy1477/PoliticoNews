@@ -21,5 +21,4 @@ extension UIView {
         view.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: view,
                                               attribute: .bottom, multiplier: 1.0, constant: 0))
     }
-    
 }

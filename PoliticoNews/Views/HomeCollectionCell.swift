@@ -20,7 +20,7 @@ final class HomeCollectionCell: UICollectionViewCell {
     }
     
     var articleImageView: UIImageView = {
-        let view = UIImageView()
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/1.38))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFit
 
@@ -60,6 +60,8 @@ final class HomeCollectionCell: UICollectionViewCell {
     
     private func initialize() {
         
+        self.articleImageView.addBlackGradientLayer(frame: articleImageView.bounds)
+
         contentView.addSubview(articleImageView)
         contentView.addSubview(articleTitle)
     
@@ -68,8 +70,8 @@ final class HomeCollectionCell: UICollectionViewCell {
         contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/1.38))
         contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
         
-        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1.0, constant: 10))
-        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1.0, constant: -10))
+        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1.0, constant: 20))
+        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1.0, constant: -20))
         contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: -10))
         
     }

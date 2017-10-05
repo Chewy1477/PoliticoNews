@@ -103,6 +103,7 @@ extension HomeViewController: UICollectionViewDataSource {
         
         cell.cellViewModel = vm[indexPath.row]
         cell.articleImageView.image = #imageLiteral(resourceName: "temp")
+
         return cell
     }
 }
