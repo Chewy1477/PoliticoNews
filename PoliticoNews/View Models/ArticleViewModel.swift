@@ -12,7 +12,7 @@ protocol ArticleCellProtocol: AnyObject {
     var articleTitle: String { get }
     var articleDate: String { get }
     var articleAuthor: String { get }
-    var articleContent: String { get }
+    var articleContent: NSMutableAttributedString { get }
     var articleDescription: String { get }
 }
 
@@ -31,14 +31,13 @@ class ArticleViewCellViewModel: ArticleCellProtocol {
         return myArticle.author
     }
     
-    
-    var articleContent: String {
-        let content = myArticle.content
-        
+    var articleContent: NSMutableAttributedString {
+        let content = myArticle.content.string
         let firstTag = content.replacingOccurrences(of: "<p>", with: "")
-        let endTag = firstTag.replacingOccurrences(of: "</p>", with: "\n")
+        let endTag = firstTag.replacingOccurrences(of: "</p>", with: "\n\n")
         
-        return endTag
+        let s = NSMutableAttributedString().bold(endTag)
+        return s
     }
     
     var articleDescription: String {

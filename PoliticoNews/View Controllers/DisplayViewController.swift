@@ -20,12 +20,12 @@ final class DisplayViewController: PTViewController {
             }
             displayTitle.text = avm.articleTitle
             displayImageView.image = #imageLiteral(resourceName: "temp")
-            displayTextView.text = avm.articleContent
+            displayTextView.attributedText = avm.articleContent
         }
     }
     
     var displayImageView: UIImageView = {
-        let view = UIImageView()
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/1.5))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
@@ -34,11 +34,12 @@ final class DisplayViewController: PTViewController {
     }()
     
     var scrollView: UIScrollView = {
-        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
-    var displayBackgroundView: UIView = {
+    var contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.white
@@ -62,12 +63,13 @@ final class DisplayViewController: PTViewController {
     }()
     
     var displayTextView: UITextView = {
-        let contents = UITextView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
+        let contents = UITextView()
         contents.translatesAutoresizingMaskIntoConstraints = false
-        contents.font = UIFont.systemFont(ofSize: 14)
-        contents.isScrollEnabled = true
+        contents.font = UIFont.systemFont(ofSize: 16)
+        contents.isScrollEnabled = false
         contents.isDirectionalLockEnabled = true
         contents.alwaysBounceVertical = true
+        contents.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         return contents
     }()
     
@@ -75,7 +77,7 @@ final class DisplayViewController: PTViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.darkGray
         checkSaved = CoreDataHelper.retrieveFavorites()
         
         if (checkSaved.count != 0) {
@@ -88,46 +90,62 @@ final class DisplayViewController: PTViewController {
         
         initialize()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        scrollView.frame = self.view.bounds
+        contentView.frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height)
+    }
 
     private func initialize() {
         setInitialBarButton()
-        
+        displayTextView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: displayTextView.contentSize.height)
+        displayTextView.sizeToFit()
+
         view.addSubview(scrollView)
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: displayTextView.contentSize.height)
-        
-        scrollView.addSubview(displayImageView)
-        scrollView.addSubview(displayBackgroundView)
-        
-        displayBackgroundView.addSubview(displayTitle)
-//        displayBackgroundView.addSubview(displayTextView)
-        
-        view.addConstraint(NSLayoutConstraint(item: displayImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/1.5))
-        view.addConstraint(NSLayoutConstraint(item: displayImageView, attribute: .top, relatedBy: .equal, toItem: view,
-                                              attribute: .top, multiplier: 1.0, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: displayImageView, attribute: .width, relatedBy: .equal, toItem: nil,
-                                              attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
+        scrollView.addSubview(contentView)
+        contentView.addSubview(displayImageView)
 
-        view.addConstraint(NSLayoutConstraint(item: displayBackgroundView, attribute: .top, relatedBy: .equal, toItem: displayImageView,
-                                              attribute: .bottom, multiplier: 1.0, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: displayBackgroundView, attribute: .bottom, relatedBy: .equal, toItem: view,
-                                              attribute: .bottom, multiplier: 1.0, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: displayBackgroundView, attribute: .width, relatedBy: .equal, toItem: nil,
-                                              attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
+        contentView.addSubview(displayTitle)
+        contentView.addSubview(displayTextView)
+        
+        var height: CGFloat = 0
+        for view in contentView.subviews {
+            height += view.frame.size.height
+        }
+        
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: height + 200)
 
+        scrollView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: scrollView,
+                                                    attribute: .bottom, multiplier: 1.0, constant: 0))
+        scrollView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .width, relatedBy: .equal, toItem: nil,
+                                                    attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
+        scrollView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .bottom, relatedBy: .equal, toItem:   displayTextView,
+                                                    attribute: .bottom, multiplier: 1.0, constant: 0))
         
-        view.addConstraint(NSLayoutConstraint(item: displayTitle, attribute: .left, relatedBy: .equal, toItem: view,
-                                              attribute: .left, multiplier: 1.0, constant: 20))
-        view.addConstraint(NSLayoutConstraint(item: displayTitle, attribute: .right, relatedBy: .equal, toItem: view,
-                                              attribute: .right, multiplier: 1.0, constant: -20))
-        view.addConstraint(NSLayoutConstraint(item: displayTitle, attribute: .top, relatedBy: .equal, toItem: displayImageView,
-                                              attribute: .bottom, multiplier: 1.0, constant: 20))
+        contentView.addConstraint(NSLayoutConstraint(item: displayImageView, attribute: .height, relatedBy: .equal, toItem: nil,
+                                                     attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/1.5))
+        contentView.addConstraint(NSLayoutConstraint(item: displayImageView, attribute: .top, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .top, multiplier: 1.0, constant: 0))
+        contentView.addConstraint(NSLayoutConstraint(item: displayImageView, attribute: .width, relatedBy: .equal, toItem: nil,
+                                                     attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
+
+        contentView.addConstraint(NSLayoutConstraint(item: displayTitle, attribute: .left, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .left, multiplier: 1.0, constant: 20))
+        contentView.addConstraint(NSLayoutConstraint(item: displayTitle, attribute: .right, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .right, multiplier: 1.0, constant: -20))
+        contentView.addConstraint(NSLayoutConstraint(item: displayTitle,attribute: .top, relatedBy: .equal, toItem: displayImageView,
+                                                     attribute: .bottom, multiplier: 1.0, constant: 20))
+
+        contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .width, relatedBy: .equal, toItem: nil,
+                                                     attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
         
+        contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .height, relatedBy: .equal, toItem: nil,
+                                                     attribute: .notAnAttribute, multiplier: 1.0, constant: scrollView.contentSize.height))
+        contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .top, relatedBy: .equal, toItem: displayTitle,
+                                                     attribute: .bottom, multiplier: 1.0, constant: 20))
         
-//        view.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .top, relatedBy: .equal, toItem: displayTitle,
-//                                              attribute: .bottom, multiplier: 1.0, constant: 30))
-//            //view.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .bottom, relatedBy: .equal, toItem: displayBackgroundView, attribute: .bottom, multiplier: 1.0, constant: 0))
-//            view.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/2))
-//            view.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,multiplier: 1.0, constant: UIScreen.main.bounds.height-displayImageView.frame.height))
     }
     
     func setInitialBarButton() {
@@ -178,7 +196,7 @@ final class DisplayViewController: PTViewController {
         }
         
         create.title = vm.articleTitle
-        create.content = vm.articleContent
+        create.content = vm.articleContent.string
         create.author = vm.articleAuthor
         CoreDataHelper.saveFavorite()
     }

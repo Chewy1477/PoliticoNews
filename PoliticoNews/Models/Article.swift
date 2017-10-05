@@ -11,11 +11,11 @@ import UIKit
 struct Article {
     let title: String
     let description: String
-    let content: String
+    let content: NSMutableAttributedString
     let author: String
     let date: String
     
-    init(title: String, description: String, content: String, author: String, date: String) {
+    init(title: String, description: String, content: NSMutableAttributedString, author: String, date: String) {
         self.title = title
         self.description = description
         self.content = content

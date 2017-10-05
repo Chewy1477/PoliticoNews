@@ -11,6 +11,7 @@
 		8329ADE81F7D8C53004AF2E6 /* UIView+PoliticoNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329ADE71F7D8C53004AF2E6 /* UIView+PoliticoNews.swift */; };
 		832E54C01F7E2D1400B780E5 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E54BF1F7E2D1400B780E5 /* DisplayViewController.swift */; };
 		834E1ECB1F8347E200E47854 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834E1ECA1F8347E200E47854 /* Article.swift */; };
+		834E1ECD1F85A19E00E47854 /* BoldString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834E1ECC1F85A19E00E47854 /* BoldString.swift */; };
 		83566B331F81E7A0005B5367 /* FavoritesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83566B321F81E7A0005B5367 /* FavoritesTableCell.swift */; };
 		83566B351F81F691005B5367 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83566B341F81F691005B5367 /* CoreData.framework */; };
 		83566B381F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83566B361F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 		8329ADE71F7D8C53004AF2E6 /* UIView+PoliticoNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PoliticoNews.swift"; sourceTree = "<group>"; };
 		832E54BF1F7E2D1400B780E5 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		834E1ECA1F8347E200E47854 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		834E1ECC1F85A19E00E47854 /* BoldString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldString.swift; sourceTree = "<group>"; };
 		83566B321F81E7A0005B5367 /* FavoritesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableCell.swift; sourceTree = "<group>"; };
 		83566B341F81F691005B5367 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		83566B371F81F6C1005B5367 /* FavoriteArticles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteArticles.xcdatamodel; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				83BC0B8C1F7C5245002D968E /* PTViewController.swift */,
 				83BC0B931F7C5C7E002D968E /* UIColor.swift */,
 				8329ADE71F7D8C53004AF2E6 /* UIView+PoliticoNews.swift */,
+				834E1ECC1F85A19E00E47854 /* BoldString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				83BC0B831F7A3A0D002D968E /* ArticleSerialization.swift in Sources */,
 				83BC0B8F1F7C52B3002D968E /* PTNavigationController.swift in Sources */,
 				834E1ECB1F8347E200E47854 /* Article.swift in Sources */,
+				834E1ECD1F85A19E00E47854 /* BoldString.swift in Sources */,
 				83BC0B941F7C5C7E002D968E /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
