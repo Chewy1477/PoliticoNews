@@ -95,10 +95,6 @@ final class DisplayViewController: PTViewController {
         initialize()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.hidesBarsOnSwipe = false
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         

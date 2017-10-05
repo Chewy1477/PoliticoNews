@@ -25,11 +25,15 @@ final class FavoritesViewController: PTViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+        
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorColor = UIColor.clear
+        
         initialize()
         self.title = "Favorites"
     }

@@ -23,14 +23,19 @@ final class HomeViewController: PTViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.hidesBarsOnSwipe = false
 
         self.title = "Politico"
         
         getXML(url: apiToContact)
         createCollectionView()
         refreshControl()
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.isNavigationBarHidden = false
     }
     
     fileprivate func refreshControl() {
@@ -54,7 +59,6 @@ final class HomeViewController: PTViewController {
         collectionView.dataSource = self
         collectionView.backgroundColor = .darkGray
         collectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: collectionView.bounds.width/6 + 50, right: 5)
-
         collectionView.addToAndConstrain(insideSuper: view)
     }
     
@@ -112,7 +116,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let itemWidth = (collectionView.bounds.width)
-        let itemSize = CGSize(width: itemWidth, height: collectionView.bounds.width/1.88)
+        let itemSize = CGSize(width: itemWidth, height: collectionView.bounds.width/1.4)
         return itemSize
     }
 }

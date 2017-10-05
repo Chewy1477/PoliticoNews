@@ -22,7 +22,7 @@ final class HomeCollectionCell: UICollectionViewCell {
     var articleImageView: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/1.38))
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
 
         return view
     }()
@@ -72,7 +72,7 @@ final class HomeCollectionCell: UICollectionViewCell {
         
         contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1.0, constant: 20))
         contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1.0, constant: -20))
-        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: -10))
+        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: -20))
         
     }
     
