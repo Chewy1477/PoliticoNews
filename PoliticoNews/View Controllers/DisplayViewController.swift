@@ -23,7 +23,18 @@ final class DisplayViewController: PTViewController {
             
             let htmlData = NSString(string: avm.articleContent).data(using: String.Encoding.unicode.rawValue)
             let attributedString = try! NSMutableAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
-            displayTextView.attributedText = attributedString
+            
+            let maintain: NSMutableAttributedString = attributedString
+            maintain.beginEditing()
+            maintain.enumerateAttribute(NSFontAttributeName, in: NSMakeRange(0, maintain.length), options: NSAttributedString.EnumerationOptions(rawValue: 0)) { (value, range, stop) -> Void in
+                if let oldFont = value as? UIFont {
+                    let newFont = oldFont.withSize(18)
+                    maintain.removeAttribute(NSFontAttributeName, range: range)
+                    maintain.addAttribute(NSFontAttributeName, value: newFont, range: range)
+                }
+            }
+            maintain.endEditing()
+            displayTextView.attributedText = maintain
         }
     }
     
@@ -68,7 +79,6 @@ final class DisplayViewController: PTViewController {
     var displayTextView: UITextView = {
         let contents = UITextView()
         contents.translatesAutoresizingMaskIntoConstraints = false
-        contents.font = UIFont.systemFont(ofSize: 16)
         contents.isScrollEnabled = false
         contents.isDirectionalLockEnabled = true
         contents.alwaysBounceVertical = true
