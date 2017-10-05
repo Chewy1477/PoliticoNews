@@ -23,6 +23,8 @@ final class HomeViewController: PTViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.hidesBarsOnSwipe = false
+
         self.title = "Politico"
         
         getXML(url: apiToContact)

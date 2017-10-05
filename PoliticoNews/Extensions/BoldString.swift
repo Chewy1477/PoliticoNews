@@ -9,23 +9,21 @@
 import UIKit
 
 extension NSMutableAttributedString {
-    func bold(_ text: String) -> NSMutableAttributedString {
-        let att = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 16)]
-        let boldString = NSMutableAttributedString(string: text, attributes: att)
-        self.append(boldString)
-        return self
-    }
-    
-    func normal(_ text:String) -> NSMutableAttributedString {
-        let normal = NSAttributedString(string: text)
-        self.append(normal)
-        return self
-    }
-    
-    func italicize(_ text: String) -> NSMutableAttributedString {
-        let att = [NSFontAttributeName : UIFont.italicSystemFont(ofSize: 16)]
-        let italicizedString = NSMutableAttributedString(string: text, attributes: att)
-        self.append(italicizedString)
-        return self
+    func changeAttributes(text: String) -> NSMutableAttributedString {
+        let htmlData = NSString(string: text).data(using: String.Encoding.unicode.rawValue)
+        let attributedString = try! NSMutableAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        
+        let maintain: NSMutableAttributedString = attributedString
+        maintain.beginEditing()
+        maintain.enumerateAttribute(NSFontAttributeName, in: NSMakeRange(0, maintain.length), options: NSAttributedString.EnumerationOptions(rawValue: 0)) { (value, range, stop) -> Void in
+            if let oldFont = value as? UIFont {
+                let newFont = oldFont.withSize(18)
+                maintain.removeAttribute(NSFontAttributeName, range: range)
+                maintain.addAttribute(NSFontAttributeName, value: newFont, range: range)
+            }
+        }
+        maintain.endEditing()
+        return maintain
+
     }
 }

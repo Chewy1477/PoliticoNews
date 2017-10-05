@@ -21,20 +21,8 @@ final class DisplayViewController: PTViewController {
             displayTitle.text = avm.articleTitle
             displayImageView.image = #imageLiteral(resourceName: "temp")
             
-            let htmlData = NSString(string: avm.articleContent).data(using: String.Encoding.unicode.rawValue)
-            let attributedString = try! NSMutableAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
-            
-            let maintain: NSMutableAttributedString = attributedString
-            maintain.beginEditing()
-            maintain.enumerateAttribute(NSFontAttributeName, in: NSMakeRange(0, maintain.length), options: NSAttributedString.EnumerationOptions(rawValue: 0)) { (value, range, stop) -> Void in
-                if let oldFont = value as? UIFont {
-                    let newFont = oldFont.withSize(18)
-                    maintain.removeAttribute(NSFontAttributeName, range: range)
-                    maintain.addAttribute(NSFontAttributeName, value: newFont, range: range)
-                }
-            }
-            maintain.endEditing()
-            displayTextView.attributedText = maintain
+            let formatted = NSMutableAttributedString()
+            displayTextView.attributedText = formatted.changeAttributes(text: avm.articleContent)
         }
     }
     
@@ -79,7 +67,7 @@ final class DisplayViewController: PTViewController {
     var displayTextView: UITextView = {
         let contents = UITextView()
         contents.translatesAutoresizingMaskIntoConstraints = false
-        contents.isScrollEnabled = false
+        contents.isScrollEnabled = true
         contents.isDirectionalLockEnabled = true
         contents.alwaysBounceVertical = true
         contents.isEditable = false
@@ -91,6 +79,8 @@ final class DisplayViewController: PTViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.hidesBarsOnSwipe = true
+
         self.view.backgroundColor = UIColor.darkGray
         checkSaved = CoreDataHelper.retrieveFavorites()
         
@@ -105,6 +95,10 @@ final class DisplayViewController: PTViewController {
         initialize()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.hidesBarsOnSwipe = false
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -116,7 +110,7 @@ final class DisplayViewController: PTViewController {
         setInitialBarButton()
         displayTextView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: displayTextView.contentSize.height)
         displayTextView.sizeToFit()
-
+        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(displayImageView)
@@ -129,7 +123,7 @@ final class DisplayViewController: PTViewController {
             height += view.frame.size.height
         }
         
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: height + 200)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: height + 150)
 
         scrollView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: scrollView,
                                                     attribute: .bottom, multiplier: 1.0, constant: 0))
@@ -154,7 +148,6 @@ final class DisplayViewController: PTViewController {
 
         contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .width, relatedBy: .equal, toItem: nil,
                                                      attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
-        
         contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .height, relatedBy: .equal, toItem: nil,
                                                      attribute: .notAnAttribute, multiplier: 1.0, constant: scrollView.contentSize.height))
         contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .top, relatedBy: .equal, toItem: displayTitle,

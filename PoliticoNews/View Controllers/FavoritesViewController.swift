@@ -17,10 +17,7 @@ final class FavoritesViewController: PTViewController {
         return view
     }()
     
-    var tableViewModel: ArticleViewModel?
-
     var favorites: [Favorite] = []
-    var articles: Article?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -32,6 +29,7 @@ final class FavoritesViewController: PTViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.separatorColor = UIColor.clear
         initialize()
         self.title = "Favorites"
     }
@@ -89,6 +87,7 @@ extension FavoritesViewController: UITableViewDataSource {
         
         let row = indexPath.row
         let favorite = favorites[row]
+
         cell.title.text = favorite.title
         cell.myImage.image = #imageLiteral(resourceName: "temp")
         return cell
