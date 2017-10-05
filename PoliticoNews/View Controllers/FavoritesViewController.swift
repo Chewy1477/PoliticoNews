@@ -56,7 +56,7 @@ extension FavoritesViewController: UITableViewDelegate {
         let author = selected.author ?? ""
         let date = selected.date ?? ""
         
-        let toPass = Article(title: title, description: description, content: NSMutableAttributedString().normal(content), author: author, date: date)
+        let toPass = Article(title: title, description: description, content: content, author: author, date: date)
         
         displayVC.viewModel = ArticleViewCellViewModel(withArticle: toPass)
         navigationController?.pushViewController(displayVC, animated: true)

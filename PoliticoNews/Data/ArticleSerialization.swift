@@ -34,7 +34,7 @@ public final class ArticleSerialization {
                 
                 let articleContent = items[i]["content:encoded"].element?.text ?? ""
             
-                let article = Article(title: articleName, description: articleDescription, content: NSMutableAttributedString().normal(articleContent), author: articleAuthor, date: articleDate)
+                let article = Article(title: articleName, description: articleDescription, content: articleContent, author: articleAuthor, date: articleDate)
             arrArticles.append(article)
             }
             return arrArticles

@@ -20,7 +20,10 @@ final class DisplayViewController: PTViewController {
             }
             displayTitle.text = avm.articleTitle
             displayImageView.image = #imageLiteral(resourceName: "temp")
-            displayTextView.attributedText = avm.articleContent
+            
+            let htmlData = NSString(string: avm.articleContent).data(using: String.Encoding.unicode.rawValue)
+            let attributedString = try! NSMutableAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+            displayTextView.attributedText = attributedString
         }
     }
     
@@ -69,6 +72,7 @@ final class DisplayViewController: PTViewController {
         contents.isScrollEnabled = false
         contents.isDirectionalLockEnabled = true
         contents.alwaysBounceVertical = true
+        contents.isEditable = false
         contents.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         return contents
     }()
@@ -196,7 +200,7 @@ final class DisplayViewController: PTViewController {
         }
         
         create.title = vm.articleTitle
-        create.content = vm.articleContent.string
+        create.content = vm.articleContent
         create.author = vm.articleAuthor
         CoreDataHelper.saveFavorite()
     }

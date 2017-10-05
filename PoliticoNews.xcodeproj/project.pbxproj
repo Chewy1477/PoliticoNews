@@ -10,11 +10,11 @@
 		8329ADE61F7CBFFC004AF2E6 /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329ADE51F7CBFFC004AF2E6 /* HomeCollectionCell.swift */; };
 		8329ADE81F7D8C53004AF2E6 /* UIView+PoliticoNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329ADE71F7D8C53004AF2E6 /* UIView+PoliticoNews.swift */; };
 		832E54C01F7E2D1400B780E5 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E54BF1F7E2D1400B780E5 /* DisplayViewController.swift */; };
+		833F5B431F8609B80096F367 /* FavoriteArticle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 833F5B411F8609B80096F367 /* FavoriteArticle.xcdatamodeld */; };
 		834E1ECB1F8347E200E47854 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834E1ECA1F8347E200E47854 /* Article.swift */; };
 		834E1ECD1F85A19E00E47854 /* BoldString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834E1ECC1F85A19E00E47854 /* BoldString.swift */; };
 		83566B331F81E7A0005B5367 /* FavoritesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83566B321F81E7A0005B5367 /* FavoritesTableCell.swift */; };
 		83566B351F81F691005B5367 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83566B341F81F691005B5367 /* CoreData.framework */; };
-		83566B381F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83566B361F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld */; };
 		83566B3A1F81F766005B5367 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83566B391F81F766005B5367 /* CoreDataHelper.swift */; };
 		83769D041F79A0A3001A91D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83769D031F79A0A3001A91D7 /* AppDelegate.swift */; };
 		83769D061F79A0A3001A91D7 /* NewsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83769D051F79A0A3001A91D7 /* NewsTabBarController.swift */; };
@@ -37,11 +37,11 @@
 		8329ADE51F7CBFFC004AF2E6 /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
 		8329ADE71F7D8C53004AF2E6 /* UIView+PoliticoNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PoliticoNews.swift"; sourceTree = "<group>"; };
 		832E54BF1F7E2D1400B780E5 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
+		833F5B421F8609B80096F367 /* FavoriteArticle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteArticle.xcdatamodel; sourceTree = "<group>"; };
 		834E1ECA1F8347E200E47854 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		834E1ECC1F85A19E00E47854 /* BoldString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldString.swift; sourceTree = "<group>"; };
 		83566B321F81E7A0005B5367 /* FavoritesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableCell.swift; sourceTree = "<group>"; };
 		83566B341F81F691005B5367 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		83566B371F81F6C1005B5367 /* FavoriteArticles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteArticles.xcdatamodel; sourceTree = "<group>"; };
 		83566B391F81F766005B5367 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		83769D001F79A0A3001A91D7 /* PoliticoNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliticoNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83769D031F79A0A3001A91D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 				83BC0B8B1F7C520A002D968E /* Extensions */,
 				83769D0A1F79A0A3001A91D7 /* Assets.xcassets */,
 				83769D0F1F79A0A3001A91D7 /* Info.plist */,
-				83566B361F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld */,
+				833F5B411F8609B80096F367 /* FavoriteArticle.xcdatamodeld */,
 			);
 			path = PoliticoNews;
 			sourceTree = "<group>";
@@ -340,11 +340,11 @@
 				83769D041F79A0A3001A91D7 /* AppDelegate.swift in Sources */,
 				83BC0B8A1F7C4DF8002D968E /* FavoritesViewController.swift in Sources */,
 				83BC0B971F7C6ED1002D968E /* ArticleViewModel.swift in Sources */,
-				83566B381F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld in Sources */,
 				83BC0B831F7A3A0D002D968E /* ArticleSerialization.swift in Sources */,
 				83BC0B8F1F7C52B3002D968E /* PTNavigationController.swift in Sources */,
 				834E1ECB1F8347E200E47854 /* Article.swift in Sources */,
 				834E1ECD1F85A19E00E47854 /* BoldString.swift in Sources */,
+				833F5B431F8609B80096F367 /* FavoriteArticle.xcdatamodeld in Sources */,
 				83BC0B941F7C5C7E002D968E /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,13 +514,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		83566B361F81F6C1005B5367 /* FavoriteArticles.xcdatamodeld */ = {
+		833F5B411F8609B80096F367 /* FavoriteArticle.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				83566B371F81F6C1005B5367 /* FavoriteArticles.xcdatamodel */,
+				833F5B421F8609B80096F367 /* FavoriteArticle.xcdatamodel */,
 			);
-			currentVersion = 83566B371F81F6C1005B5367 /* FavoriteArticles.xcdatamodel */;
-			path = FavoriteArticles.xcdatamodeld;
+			currentVersion = 833F5B421F8609B80096F367 /* FavoriteArticle.xcdatamodel */;
+			path = FavoriteArticle.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
