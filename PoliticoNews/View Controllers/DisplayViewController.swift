@@ -28,7 +28,7 @@ final class DisplayViewController: PTViewController {
         }
     }
     
-    var displayImageView: UIImageView = {
+    fileprivate let displayImageView: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/1.5))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
@@ -37,20 +37,20 @@ final class DisplayViewController: PTViewController {
         return view
     }()
     
-    var scrollView: UIScrollView = {
+    fileprivate let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
-    var contentView: UIView = {
+    fileprivate let contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.white
         return view
     }()
 
-    var displayTitle: UILabel = {
+    fileprivate let displayTitle: UILabel = {
         let title = UILabel()
         title.layer.shadowOpacity = 0.5
         title.layer.shadowRadius = 0.5
@@ -66,7 +66,7 @@ final class DisplayViewController: PTViewController {
         return title
     }()
     
-    var displayAuthor: UILabel = {
+    fileprivate let displayAuthor: UILabel = {
         let author = UILabel()
         author.textAlignment = .left
         author.textColor = .black
@@ -77,7 +77,7 @@ final class DisplayViewController: PTViewController {
         return author
     }()
     
-    var displayDate: UILabel = {
+    fileprivate let displayDate: UILabel = {
         let date = UILabel()
         date.textAlignment = .left
         date.textColor = UIColor.darkGray
@@ -88,7 +88,7 @@ final class DisplayViewController: PTViewController {
         return date
     }()
     
-    var displayTextView: UITextView = {
+    fileprivate let displayTextView: UITextView = {
         let contents = UITextView()
         contents.translatesAutoresizingMaskIntoConstraints = false
         contents.isScrollEnabled = true
@@ -192,7 +192,7 @@ final class DisplayViewController: PTViewController {
         
     }
     
-    func setInitialBarButton() {
+    fileprivate func setInitialBarButton() {
         if (hasHeart == false) {
             createRightBarButtonItem(image: #imageLiteral(resourceName: "unfavorited"))
         }
@@ -201,7 +201,7 @@ final class DisplayViewController: PTViewController {
         }
     }
     
-    func executeUpdates() {
+    @objc fileprivate func executeUpdates() {
         if (hasHeart == false) {
             createRightBarButtonItem(image: #imageLiteral(resourceName: "favorited"))
             hasHeart = true
@@ -217,7 +217,7 @@ final class DisplayViewController: PTViewController {
         }
     }
     
-    func createRightBarButtonItem(image: UIImage) {
+    fileprivate func createRightBarButtonItem(image: UIImage) {
         let heart = UIButton(type: .custom)
         heart.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         
@@ -232,7 +232,7 @@ final class DisplayViewController: PTViewController {
         self.navigationItem.rightBarButtonItem = barButton
     }
     
-    func addToFavorites() {
+    fileprivate func addToFavorites() {
         let create = CoreDataHelper.newFavorite()
         
         guard let vm = viewModel else {
@@ -246,6 +246,3 @@ final class DisplayViewController: PTViewController {
     }
 }
 
-extension DisplayViewController: UIScrollViewDelegate {
-    
-}

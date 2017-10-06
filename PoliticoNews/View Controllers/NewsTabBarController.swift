@@ -13,8 +13,8 @@ final class NewsTabBarController: UINavigationController {
     fileprivate let homeVC = HomeViewController()
     fileprivate let favoritesVC = FavoritesViewController()
     
-    private let tabBar: CustomTabBar = {
-        let tab = CustomTabBar()
+    private let tabBar: NewsTabBar = {
+        let tab = NewsTabBar()
         tab.translatesAutoresizingMaskIntoConstraints = false
         return tab
     }()
@@ -39,7 +39,7 @@ final class NewsTabBarController: UINavigationController {
         setViewControllers([homeVC], animated: false)
     }
     
-    private func initialize() {
+    fileprivate func initialize() {
         
         view.addSubview(tabBar)
         
@@ -56,7 +56,7 @@ final class NewsTabBarController: UINavigationController {
 }
 
 extension NewsTabBarController: CustomTabBarDelegate {
-    func customTabBar(_ tabBar: CustomTabBar, didTapButtonAtIndex index: Int) {
+    func customTabBar(_ tabBar: NewsTabBar, didTapButtonAtIndex index: Int) {
         if index == 0 {
             setViewControllers([homeVC], animated: false)
         }

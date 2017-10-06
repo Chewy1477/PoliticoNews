@@ -9,10 +9,10 @@
 import UIKit
 
 protocol CustomTabBarDelegate: AnyObject {
-    func customTabBar(_ tabBar: CustomTabBar, didTapButtonAtIndex index: Int)
+    func customTabBar(_ tabBar: NewsTabBar, didTapButtonAtIndex index: Int)
 }
 
-class CustomTabBar: UIView {
+final class NewsTabBar: UIView {
     
     weak var delegate: CustomTabBarDelegate?
     
@@ -113,8 +113,8 @@ class CustomTabBar: UIView {
         favoritesLabel.frame = CGRect(x: 0, y: homeButton.frame.origin.y, width: favoritesLabel.intrinsicContentSize.width, height: 50)
         favoritesLabel.center.x = (UIScreen.main.bounds.width/4)
 
-        homeButton.addTarget(self, action: #selector(CustomTabBar.didTapButton(sender:)), for: .touchUpInside)
-        favoritesButton.addTarget(self, action: #selector(CustomTabBar.didTapButton(sender:)), for: .touchUpInside)
+        homeButton.addTarget(self, action: #selector(NewsTabBar.didTapButton(sender:)), for: .touchUpInside)
+        favoritesButton.addTarget(self, action: #selector(NewsTabBar.didTapButton(sender:)), for: .touchUpInside)
      
         addConstraint(NSLayoutConstraint(item: topBarView, attribute: .bottom, relatedBy: .equal, toItem: self,
                                          attribute: .bottom, multiplier: 1.0, constant: 0))
@@ -168,7 +168,7 @@ class CustomTabBar: UIView {
                 options: .curveEaseOut,
                 animations: {
                     self.homeLabel.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1.0)
-            },
+                },
                 completion: { finish in
                     UIView.animate(
                         withDuration: 0.3,
@@ -200,7 +200,7 @@ class CustomTabBar: UIView {
                 options: .curveEaseOut,
                 animations: {
                     self.favoritesLabel.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1.0)
-            },
+                },
                 completion: { finish in
                     UIView.animate(
                         withDuration: 0.3,
@@ -218,7 +218,7 @@ class CustomTabBar: UIView {
                 options: .curveEaseOut,
                 animations: {
                     self.layoutIfNeeded()
-            },
+                },
                 completion: nil)
         default: return
         }

@@ -9,7 +9,7 @@
 import UIKit
 import SWXMLHash
 
-public final class ArticleSerialization {
+final class ArticleSerialization {
     
     static func articles(data: Data) throws -> [Article] {
         var arrArticles: [Article] = []

@@ -10,14 +10,14 @@ import UIKit
 
 final class FavoritesTableCell: UITableViewCell {
     
-    var myImage: UIImageView = {
+    let myImage: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
         return view
     }()
     
-    var title: UILabel = {
+    let title: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = .black

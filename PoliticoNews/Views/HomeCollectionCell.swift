@@ -19,7 +19,7 @@ final class HomeCollectionCell: UICollectionViewCell {
         }
     }
     
-    var articleImageView: UIImageView = {
+    let articleImageView: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/1.38))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
@@ -27,7 +27,7 @@ final class HomeCollectionCell: UICollectionViewCell {
         return view
     }()
     
-    var articleTitle: UILabel = {
+    fileprivate let articleTitle: UILabel = {
         let title = UILabel()
         title.layer.shadowOpacity = 4
         title.layer.shadowRadius = 4

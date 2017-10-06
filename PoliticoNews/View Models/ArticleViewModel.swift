@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - ArticleCellProtocol
 protocol ArticleCellProtocol: AnyObject {
     var articleTitle: String { get }
     var articleDate: String { get }
@@ -16,6 +17,7 @@ protocol ArticleCellProtocol: AnyObject {
     var articleDescription: String { get }
 }
 
+// MARK: - ArticleViewCellViewModel
 class ArticleViewCellViewModel: ArticleCellProtocol {
     private let myArticle: Article
     
