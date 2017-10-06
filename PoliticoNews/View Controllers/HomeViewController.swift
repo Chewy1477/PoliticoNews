@@ -46,7 +46,7 @@ final class HomeViewController: PTViewController {
         collectionView.alwaysBounceVertical = true
     }
 
-    func refresh(refreshControl: UIRefreshControl) {
+    @objc fileprivate func refresh(refreshControl: UIRefreshControl) {
         getXML(url: apiToContact)
         collectionView.reloadData()
         refreshControl.endRefreshing()
