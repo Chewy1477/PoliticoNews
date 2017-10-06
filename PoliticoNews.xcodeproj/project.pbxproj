@@ -53,8 +53,6 @@
 		83769D0D1F79A0A3001A91D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83769D0F1F79A0A3001A91D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83A32A731F8747E50015E8E6 /* String+PoliticoNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PoliticoNews.swift"; sourceTree = "<group>"; };
-		83A32AA61F87598A0015E8E6 /* gotham_rounded_bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gotham_rounded_bold.otf; sourceTree = "<group>"; };
-		83A32AA71F87598A0015E8E6 /* gotham_rounded_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gotham_rounded_light.otf; sourceTree = "<group>"; };
 		83BC0B821F7A3A0D002D968E /* ArticleSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSerialization.swift; sourceTree = "<group>"; };
 		83BC0B871F7C4DE7002D968E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		83BC0B891F7C4DF8002D968E /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -117,21 +115,11 @@
 				83BC0B7F1F7A39B2002D968E /* View Controllers */,
 				83BC0B861F7C4C6E002D968E /* Storyboards */,
 				83BC0B8B1F7C520A002D968E /* Extensions */,
-				83A32AA81F87599D0015E8E6 /* Resources */,
 				83769D0A1F79A0A3001A91D7 /* Assets.xcassets */,
 				83769D0F1F79A0A3001A91D7 /* Info.plist */,
 				833F5B411F8609B80096F367 /* FavoriteArticle.xcdatamodeld */,
 			);
 			path = PoliticoNews;
-			sourceTree = "<group>";
-		};
-		83A32AA81F87599D0015E8E6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				83A32AA61F87598A0015E8E6 /* gotham_rounded_bold.otf */,
-				83A32AA71F87598A0015E8E6 /* gotham_rounded_light.otf */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		83BC0B7F1F7A39B2002D968E /* View Controllers */ = {
