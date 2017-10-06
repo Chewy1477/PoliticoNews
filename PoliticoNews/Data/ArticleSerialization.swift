@@ -30,7 +30,7 @@ public final class ArticleSerialization {
                 
                 let articleDate = items[i]["pubDate"].element?.text ?? ""
                 
-                let articleAuthor = items[i]["author"].element?.text ?? ""
+                let articleAuthor = items[i]["author"].element?.text ?? items[i]["dc:creator"].element?.text ?? ""
                 
                 let articleContent = items[i]["content:encoded"].element?.text ?? ""
             

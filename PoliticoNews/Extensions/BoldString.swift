@@ -10,8 +10,11 @@ import UIKit
 
 extension NSMutableAttributedString {
     func changeAttributes(text: String) -> NSMutableAttributedString {
-        let htmlData = NSString(string: text).data(using: String.Encoding.unicode.rawValue)
-        let attributedString = try! NSMutableAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        guard let htmlData = NSString(string: text).data(using: String.Encoding.unicode.rawValue) else {
+            return NSMutableAttributedString().normal("")
+        }
+        
+        let attributedString = try! NSMutableAttributedString(data: htmlData, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
         
         let maintain: NSMutableAttributedString = attributedString
         maintain.beginEditing()
@@ -25,5 +28,11 @@ extension NSMutableAttributedString {
         maintain.endEditing()
         return maintain
 
+    }
+    
+    func normal(_ text: String) -> NSMutableAttributedString {
+        let normal =  NSAttributedString(string: text)
+        self.append(normal)
+        return self
     }
 }

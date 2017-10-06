@@ -28,7 +28,14 @@ class ArticleViewCellViewModel: ArticleCellProtocol {
     }
     
     var articleAuthor: String {
-        return myArticle.author
+        let author = myArticle.author
+        if (author.contains("(") || author.contains(")")) {
+            guard let sub = author.getSubstring(from: "(", to: ")") else {
+                return ""
+            }
+            return "By: " + sub
+        }
+        return "By: " + myArticle.author
     }
     
     var articleContent: String {

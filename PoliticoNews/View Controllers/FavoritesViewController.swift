@@ -19,8 +19,9 @@ final class FavoritesViewController: PTViewController {
     
     var favorites: [Favorite] = []
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         favorites = CoreDataHelper.retrieveFavorites()
         DispatchQueue.main.async {
             self.tableView.reloadData()

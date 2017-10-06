@@ -20,6 +20,8 @@ final class DisplayViewController: PTViewController {
             }
             displayTitle.text = avm.articleTitle
             displayImageView.image = #imageLiteral(resourceName: "temp")
+            displayAuthor.text = avm.articleAuthor
+            displayDate.text = avm.articleDate
             
             let formatted = NSMutableAttributedString()
             displayTextView.attributedText = formatted.changeAttributes(text: avm.articleContent)
@@ -62,6 +64,28 @@ final class DisplayViewController: PTViewController {
         title.numberOfLines = 3
         
         return title
+    }()
+    
+    var displayAuthor: UILabel = {
+        let author = UILabel()
+        author.textAlignment = .left
+        author.textColor = .black
+        author.font = UIFont.italicSystemFont(ofSize: 14)
+        author.translatesAutoresizingMaskIntoConstraints = false
+        author.numberOfLines = 1
+        
+        return author
+    }()
+    
+    var displayDate: UILabel = {
+        let date = UILabel()
+        date.textAlignment = .left
+        date.textColor = UIColor.darkGray
+        date.font = UIFont.systemFont(ofSize: 14)
+        date.translatesAutoresizingMaskIntoConstraints = false
+        date.numberOfLines = 1
+        
+        return date
     }()
     
     var displayTextView: UITextView = {
@@ -112,6 +136,8 @@ final class DisplayViewController: PTViewController {
         contentView.addSubview(displayImageView)
 
         contentView.addSubview(displayTitle)
+        contentView.addSubview(displayAuthor)
+        contentView.addSubview(displayDate)
         contentView.addSubview(displayTextView)
         
         var height: CGFloat = 0
@@ -119,7 +145,7 @@ final class DisplayViewController: PTViewController {
             height += view.frame.size.height
         }
         
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: height + 150)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: height + 200)
 
         scrollView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: scrollView,
                                                     attribute: .bottom, multiplier: 1.0, constant: 0))
@@ -141,13 +167,27 @@ final class DisplayViewController: PTViewController {
                                                      attribute: .right, multiplier: 1.0, constant: -20))
         contentView.addConstraint(NSLayoutConstraint(item: displayTitle,attribute: .top, relatedBy: .equal, toItem: displayImageView,
                                                      attribute: .bottom, multiplier: 1.0, constant: 20))
+        
+        contentView.addConstraint(NSLayoutConstraint(item: displayAuthor, attribute: .left, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .left, multiplier: 1.0, constant: 20))
+        contentView.addConstraint(NSLayoutConstraint(item: displayAuthor, attribute: .right, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .right, multiplier: 1.0, constant: -20))
+        contentView.addConstraint(NSLayoutConstraint(item: displayAuthor,attribute: .top, relatedBy: .equal, toItem: displayTitle,
+                                                     attribute: .bottom, multiplier: 1.0, constant: 15))
+        
+        contentView.addConstraint(NSLayoutConstraint(item: displayDate, attribute: .left, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .left, multiplier: 1.0, constant: 20))
+        contentView.addConstraint(NSLayoutConstraint(item: displayDate, attribute: .right, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .right, multiplier: 1.0, constant: -20))
+        contentView.addConstraint(NSLayoutConstraint(item: displayDate,attribute: .top, relatedBy: .equal, toItem: displayAuthor,
+                                                     attribute: .bottom, multiplier: 1.0, constant: 15))
 
         contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .width, relatedBy: .equal, toItem: nil,
                                                      attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
         contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .height, relatedBy: .equal, toItem: nil,
                                                      attribute: .notAnAttribute, multiplier: 1.0, constant: scrollView.contentSize.height))
-        contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .top, relatedBy: .equal, toItem: displayTitle,
-                                                     attribute: .bottom, multiplier: 1.0, constant: 20))
+        contentView.addConstraint(NSLayoutConstraint(item: displayTextView, attribute: .top, relatedBy: .equal, toItem: displayDate,
+                                                     attribute: .bottom, multiplier: 1.0, constant: 25))
         
     }
     

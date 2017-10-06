@@ -22,6 +22,7 @@
 		83769D091F79A0A3001A91D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83769D071F79A0A3001A91D7 /* Main.storyboard */; };
 		83769D0B1F79A0A3001A91D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83769D0A1F79A0A3001A91D7 /* Assets.xcassets */; };
 		83769D0E1F79A0A3001A91D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83769D0C1F79A0A3001A91D7 /* LaunchScreen.storyboard */; };
+		83A32A741F8747E50015E8E6 /* String+PoliticoNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A32A731F8747E50015E8E6 /* String+PoliticoNews.swift */; };
 		83BC0B831F7A3A0D002D968E /* ArticleSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BC0B821F7A3A0D002D968E /* ArticleSerialization.swift */; };
 		83BC0B881F7C4DE7002D968E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BC0B871F7C4DE7002D968E /* HomeViewController.swift */; };
 		83BC0B8A1F7C4DF8002D968E /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BC0B891F7C4DF8002D968E /* FavoritesViewController.swift */; };
@@ -52,6 +53,7 @@
 		83769D0A1F79A0A3001A91D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83769D0D1F79A0A3001A91D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83769D0F1F79A0A3001A91D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83A32A731F8747E50015E8E6 /* String+PoliticoNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PoliticoNews.swift"; sourceTree = "<group>"; };
 		83BC0B821F7A3A0D002D968E /* ArticleSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSerialization.swift; sourceTree = "<group>"; };
 		83BC0B871F7C4DE7002D968E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		83BC0B891F7C4DF8002D968E /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				8329ADE71F7D8C53004AF2E6 /* UIView+PoliticoNews.swift */,
 				834E1ECC1F85A19E00E47854 /* BoldString.swift */,
 				833F5B441F862BBF0096F367 /* UIImageView+PoliticoNews.swift */,
+				83A32A731F8747E50015E8E6 /* String+PoliticoNews.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				83BC0B881F7C4DE7002D968E /* HomeViewController.swift in Sources */,
 				833F5B451F862BBF0096F367 /* UIImageView+PoliticoNews.swift in Sources */,
 				83566B3A1F81F766005B5367 /* CoreDataHelper.swift in Sources */,
+				83A32A741F8747E50015E8E6 /* String+PoliticoNews.swift in Sources */,
 				83769D061F79A0A3001A91D7 /* NewsTabBarController.swift in Sources */,
 				83566B331F81E7A0005B5367 /* FavoritesTableCell.swift in Sources */,
 				8329ADE61F7CBFFC004AF2E6 /* HomeCollectionCell.swift in Sources */,
