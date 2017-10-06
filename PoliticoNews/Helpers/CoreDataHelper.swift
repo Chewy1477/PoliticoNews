@@ -13,7 +13,6 @@ class CoreDataHelper {
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static let persistentContainer = appDelegate.persistentContainer
     static let managedContext = persistentContainer.viewContext
-    //static methods will go here
     
     static func newFavorite() -> Favorite {
         let favorite = NSEntityDescription.insertNewObject(forEntityName: "Favorite", into: managedContext) as! Favorite

@@ -20,7 +20,6 @@ class CustomTabBar: UIView {
     var midBarViewCenterX: NSLayoutConstraint = NSLayoutConstraint()
     var midBarViewCenterY: NSLayoutConstraint = NSLayoutConstraint()
     
-    //blur view
     fileprivate let blurView: UIVisualEffectView = {
         let view = UIVisualEffectView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +28,6 @@ class CustomTabBar: UIView {
         return view
     }()
     
-    //top bar view
     fileprivate let topBarView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +35,6 @@ class CustomTabBar: UIView {
         return view
     }()
     
-    //middle bar view
     fileprivate let midBarView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -56,6 +53,7 @@ class CustomTabBar: UIView {
         let label = UILabel()
         label.text = "Top News"
         label.textColor = UIColor.red
+        label.font = UIFont(name: "Helvetica", size: 18)
         return label
     }()
     
@@ -71,6 +69,8 @@ class CustomTabBar: UIView {
         let favorites = UILabel()
         favorites.text = "Favorites"
         favorites.textColor = UIColor.red
+        favorites.font = UIFont(name: "Helvetica", size: 18)
+
         return favorites
     }()
     
@@ -116,34 +116,45 @@ class CustomTabBar: UIView {
         homeButton.addTarget(self, action: #selector(CustomTabBar.didTapButton(sender:)), for: .touchUpInside)
         favoritesButton.addTarget(self, action: #selector(CustomTabBar.didTapButton(sender:)), for: .touchUpInside)
      
-        //top bar view constraints
-        addConstraint(NSLayoutConstraint(item: topBarView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: topBarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 3.0))
-        addConstraint(NSLayoutConstraint(item: topBarView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/4))
-        topBarViewCenterX = NSLayoutConstraint(item: topBarView, attribute: .centerX, relatedBy: .equal, toItem: homeButton, attribute: .centerX, multiplier: 1.0, constant: 0)
+        addConstraint(NSLayoutConstraint(item: topBarView, attribute: .bottom, relatedBy: .equal, toItem: self,
+                                         attribute: .bottom, multiplier: 1.0, constant: 0))
+        addConstraint(NSLayoutConstraint(item: topBarView, attribute: .height, relatedBy: .equal, toItem: nil,
+                                         attribute: .notAnAttribute, multiplier: 1.0, constant: 3.0))
+        addConstraint(NSLayoutConstraint(item: topBarView, attribute: .width, relatedBy: .equal, toItem: nil,
+                                         attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/4))
+        topBarViewCenterX = NSLayoutConstraint(item: topBarView, attribute: .centerX, relatedBy: .equal, toItem: homeButton,
+                                               attribute: .centerX, multiplier: 1.0, constant: 0)
         addConstraint(topBarViewCenterX)
         
-        //mid bar view constraints
-
-        addConstraint(NSLayoutConstraint(item: midBarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20))
-        addConstraint(NSLayoutConstraint(item: midBarView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1))
-        midBarViewCenterX = NSLayoutConstraint(item: midBarView, attribute: .centerX, relatedBy: .equal, toItem: homeButton, attribute: .right, multiplier: 1.0, constant: 0)
-        midBarViewCenterY = NSLayoutConstraint(item: midBarView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -25)
+        addConstraint(NSLayoutConstraint(item: midBarView, attribute: .height, relatedBy: .equal, toItem: nil,
+                                         attribute: .notAnAttribute, multiplier: 1.0, constant: 20))
+        addConstraint(NSLayoutConstraint(item: midBarView, attribute: .width, relatedBy: .equal, toItem: nil,
+                                         attribute: .notAnAttribute, multiplier: 1.0, constant: 1))
+        midBarViewCenterX = NSLayoutConstraint(item: midBarView, attribute: .centerX, relatedBy: .equal, toItem: homeButton,
+                                               attribute: .right, multiplier: 1.0, constant: 0)
+        midBarViewCenterY = NSLayoutConstraint(item: midBarView, attribute: .centerY, relatedBy: .equal, toItem: self,
+                                               attribute: .bottom, multiplier: 1.0, constant: -25)
         
         addConstraint(midBarViewCenterY)
         addConstraint(midBarViewCenterX)
         
-        //home button
-        addConstraint(NSLayoutConstraint(item: homeButton, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: homeButton, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: homeButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: homeButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/2))
+        addConstraint(NSLayoutConstraint(item: homeButton, attribute: .left, relatedBy: .equal, toItem: self,
+                                         attribute: .left, multiplier: 1.0, constant: 0))
+        addConstraint(NSLayoutConstraint(item: homeButton, attribute: .top, relatedBy: .equal, toItem: self,
+                                         attribute: .top, multiplier: 1.0, constant: 0))
+        addConstraint(NSLayoutConstraint(item: homeButton, attribute: .bottom, relatedBy: .equal, toItem: self,
+                                         attribute: .bottom, multiplier: 1.0, constant: 0))
+        addConstraint(NSLayoutConstraint(item: homeButton, attribute: .width, relatedBy: .equal, toItem: nil,
+                                         attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/2))
         
-        //favorites button
-        addConstraint(NSLayoutConstraint(item: favoritesButton, attribute: .left, relatedBy: .equal, toItem: homeButton, attribute: .right, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: favoritesButton, attribute: .top, relatedBy: .equal, toItem: homeButton, attribute: .top, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: favoritesButton, attribute: .bottom, relatedBy: .equal, toItem: homeButton, attribute: .bottom, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: favoritesButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/2))
+        addConstraint(NSLayoutConstraint(item: favoritesButton, attribute: .left, relatedBy: .equal, toItem: homeButton,
+                                         attribute: .right, multiplier: 1.0, constant: 0))
+        addConstraint(NSLayoutConstraint(item: favoritesButton, attribute: .top, relatedBy: .equal, toItem: homeButton,
+                                         attribute: .top, multiplier: 1.0, constant: 0))
+        addConstraint(NSLayoutConstraint(item: favoritesButton, attribute: .bottom, relatedBy: .equal, toItem: homeButton,
+                                         attribute: .bottom, multiplier: 1.0, constant: 0))
+        addConstraint(NSLayoutConstraint(item: favoritesButton, attribute: .width, relatedBy: .equal, toItem: nil,
+                                         attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/2))
     }
     
     func didTapButton(sender: UIButton) {

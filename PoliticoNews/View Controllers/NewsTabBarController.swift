@@ -43,10 +43,14 @@ final class NewsTabBarController: UINavigationController {
         
         view.addSubview(tabBar)
         
-        view.addConstraint(NSLayoutConstraint(item: tabBar, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: tabBar, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: tabBar, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: tabBar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
+        view.addConstraint(NSLayoutConstraint(item: tabBar, attribute: .left, relatedBy: .equal, toItem: view,
+                                              attribute: .left, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: tabBar, attribute: .right, relatedBy: .equal, toItem: view,
+                                              attribute: .right, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: tabBar, attribute: .bottom, relatedBy: .equal, toItem: view,
+                                              attribute: .bottom, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: tabBar, attribute: .height, relatedBy: .equal, toItem: nil,
+                                              attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
         
     }
 }

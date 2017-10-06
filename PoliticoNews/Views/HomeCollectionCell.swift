@@ -65,14 +65,21 @@ final class HomeCollectionCell: UICollectionViewCell {
         contentView.addSubview(articleImageView)
         contentView.addSubview(articleTitle)
     
-        contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1.0, constant: 0))
-        contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1.0, constant: 0))
-        contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/1.38))
-        contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
+        contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .centerX, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .centerX, multiplier: 1.0, constant: 0))
+        contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .centerY, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .centerY, multiplier: 1.0, constant: 0))
+        contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .height, relatedBy: .equal, toItem: nil,
+                                                     attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width/1.38))
+        contentView.addConstraint(NSLayoutConstraint(item: articleImageView, attribute: .width, relatedBy: .equal, toItem: nil,
+                                                     attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
         
-        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1.0, constant: 20))
-        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1.0, constant: -20))
-        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: -20))
+        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .left, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .left, multiplier: 1.0, constant: 20))
+        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .right, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .right, multiplier: 1.0, constant: -20))
+        contentView.addConstraint(NSLayoutConstraint(item: articleTitle, attribute: .bottom, relatedBy: .equal, toItem: contentView,
+                                                     attribute: .bottom, multiplier: 1.0, constant: -20))
         
     }
     

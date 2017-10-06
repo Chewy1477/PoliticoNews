@@ -96,6 +96,7 @@ final class DisplayViewController: PTViewController {
         contents.alwaysBounceVertical = true
         contents.isEditable = false
         contents.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        contents.font = UIFont(name: "Helvetica", size: 20)
         return contents
     }()
     
